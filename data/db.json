@@ -1,0 +1,49 @@
+{
+
+  "products": [
+    { "id": "1",
+     "title": "phone",
+      "images": "https://images.pexels.com/photos/29020349/pexels-photo-29020349.jpeg",
+      "price": 2000,
+      "descripction":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga explicabo fugit dolor reprehenderit at quasi est repellat repellendus rem, laboriosam molestias libero non odio error ratione culpa soluta a ducimus!"
+    
+    },
+    { "id": "2",
+     "title": "labtub",
+      "images": "https://images.pexels.com/photos/8004004/pexels-photo-8004004.jpeg",
+      "price": 3000,
+      "descripction":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga explicabo fugit dolor reprehenderit at quasi est repellat repellendus rem, laboriosam molestias libero non odio error ratione culpa soluta a ducimus!"
+    
+    },
+      { "id": "3",
+     "title": "earpad",
+      "images": "https://images.pexels.com/photos/30428608/pexels-photo-30428608.jpeg",
+      "price": 300,
+      "descripction":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga explicabo fugit dolor reprehenderit at quasi est repellat repellendus rem, laboriosam molestias libero non odio error ratione culpa soluta a ducimus!"
+    
+    },
+      { "id": "4",
+     "title": "earpad",
+      "images": "https://media.istockphoto.com/id/1369383487/photo/wireless-headphones-on-a-white-background-close-up-the-concept-of-modern-technology.jpg?s=612x612&w=is&k=20&c=12y3JNIbK7hOKV-c1hDkRQwFaV8SXdprClh4J877hD8=",
+      "price": 500,
+      "descripction":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga explicabo fugit dolor reprehenderit at quasi est repellat repellendus rem, laboriosam molestias libero non odio error ratione culpa soluta a ducimus!"
+    
+    },
+      { "id": "5",
+     "title": "computer",
+      "images": "https://media.istockphoto.com/id/1352381181/photo/home-office-desk-with-computer-laptop-coffee-cup-and-houseplant-on-wood-table.jpg?s=612x612&w=0&k=20&c=6ZOsT1oFrhuEFWS5WtkjhpWq-roaqGV7sDFsWbhHWd0=",
+      "price": 200,
+      "descripction":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga explicabo fugit dolor reprehenderit at quasi est repellat repellendus rem, laboriosam molestias libero non odio error ratione culpa soluta a ducimus!"
+    
+    },
+      { "id": "6",
+     "title": "tablet",
+      "images": "https://images.pexels.com/photos/6337/light-coffee-pen-working.jpg",
+      "price": 200,
+      "descripction":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga explicabo fugit dolor reprehenderit at quasi est repellat repellendus rem, laboriosam molestias libero non odio error ratione culpa soluta a ducimus!"
+    
+    }
+
+  ]
+
+}

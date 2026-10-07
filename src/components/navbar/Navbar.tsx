@@ -1,0 +1,53 @@
+import { Link } from "react-router-dom"
+import Container from "../container/Container"
+import Button from "../button/Button"
+import { FaBars,FaTimes,FaShoppingCart }from "react-icons/fa"
+import { useState } from "react"
+import { useAppCartContext } from "../../context/AppContext"
+
+function Navbar() {
+  const [isOpen ,setIsOpen]= useState(false);
+  const {cartQty, handleLogOut} = useAppCartContext();
+
+  return (
+  <nav className="w-full bg-white shadow ">
+      <Container>
+          <div className="h-16 flex justify-between items-center px-4">
+            <ul className=" hidden md:flex items-center gap-3 cursor-pointer">
+              <li className="hover:shadow px-4 py-2"><Link to="/">Home</Link></li>
+              <li className="hover:shadow px-4 py-2"><Link to="/store">Store</Link></li>
+              <li className="hover:shadow px-4 py-2"><Link to="/">About us</Link></li>
+            </ul>
+              {
+                <Button  onClick={()=> setIsOpen(!isOpen)}
+                className=" relative block md:hidden p-2 text-gray-900 focuse:outline">
+                  {isOpen ? <FaTimes className="w-6 h-6 text-red-700"/> : <FaBars className="w-6 h-6"/>}
+                </Button>
+              }
+                {isOpen &&(
+           <div className=" absolute top-18 md:hidden pb-4 px-4 rounded bg-white border-t shadow">
+             <ul className="flex flex-col gap-2 pt-2 cursor-pointer">
+              <li className="hover:shadow px-4 py-2"><Link to="/">Home</Link></li>
+              <li className="hover:shadow px-4 py-2"><Link to="/store">Store</Link></li>
+              <li className="hover:shadow px-4 py-2"><Link to="/">About us</Link></li>
+            </ul>
+            </div>)}
+            <div className="flex items-center">
+                <Button className="hedden md:flex flex-col" >
+              <Link to="/cart" className="relative">
+              <FaShoppingCart className="w-6 h-6 text-red-700" />
+              <span className="w-5 h-5 absolute -top-2 -right-2 bg-black text-red-700 flex items-center justify-center rounded-full">{cartQty}</span>
+              </Link>
+              </Button>
+              <Button
+              onClick={handleLogOut} className="ml-4 text-red-700 font-bold">Log out</Button>
+            </div>
+
+          </div>  
+      </Container>
+    </nav>
+
+  )
+}
+
+export default Navbar
