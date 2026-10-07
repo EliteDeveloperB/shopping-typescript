@@ -17,7 +17,6 @@ interface AppCartContext {
     handleDecreaseProductQty:(id:string)=>void;
      getProductQty:(id:string)=> number;
      handleRemoveProduct :(id:string)=>void;
-     totalCartPrice :()=> number;
 
 }  
 export const AppCartContext = createContext({} as AppCartContext);
