@@ -1,6 +1,8 @@
-import { createContext, useContext} from "react";
+import { createContext, useContext, useEffect, useState} from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-// import { useNavigate } from "react-router-dom";
+import { getProducts } from "../services/api";
+import type{ Products } from "../type/servers";
+
 
 
 
@@ -17,6 +19,8 @@ interface AppCartContext {
     handleDecreaseProductQty:(id:string)=>void;
      getProductQty:(id:string)=> number;
      handleRemoveProduct :(id:string)=>void;
+      getQtyItems:()=> number;
+       getTotalPreice:()=> number;
 
 }  
 export const AppCartContext = createContext({} as AppCartContext);
@@ -26,6 +30,12 @@ export const useAppCartContext = ()=>{
 
 export function ShopingCartProvider({children}:ShopingCartProvider){
     const [cartItems,setCartItems]= useLocalStorage<cartItem[]>("cartItems",[]);
+    const [allProducts,setAllProducts]=useState<Products[]>([]);
+    useEffect(()=>{
+        getProducts().then(data =>{
+            setAllProducts(data)
+        })
+    },[])
 
     const hadleIncreaseProductQty = (id:string)=>{
         setCartItems (currentItems=> {
@@ -68,6 +78,16 @@ export function ShopingCartProvider({children}:ShopingCartProvider){
     const handleRemoveProduct =(id:string)=>{
         setCartItems(currentItems => currentItems.filter((item)=> item.id != id))
     }
+    const getQtyItems = ()=>{
+        return cartItems.reduce((total , item)=>total + item.qty ,0)
+    }
+    const getTotalPreice = ()=>{
+        return cartItems.reduce((total,item)=> {
+            const mainPrice = allProducts.find(p => p.id ===item.id)
+            return total + ( mainPrice!.price * item.qty)
+
+        },0)
+    }
    
 
     return(
@@ -75,7 +95,9 @@ export function ShopingCartProvider({children}:ShopingCartProvider){
             hadleIncreaseProductQty,
             handleDecreaseProductQty,
              getProductQty ,
-             handleRemoveProduct 
+             handleRemoveProduct , 
+             getQtyItems,
+              getTotalPreice
         
          }}>
             {children}
